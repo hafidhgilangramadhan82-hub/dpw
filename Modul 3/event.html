@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Halaman Event - Kontras Perbedaan</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Hafidh Gilang Ramadhan">
+    <meta name="nim" content="253307047">
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; margin: 0; }
+        header { background-color: #333; padding: 20px; text-align: center; color: white; }
+        nav { float: left; width: 25%; min-height: 600px; background: #eee; padding: 15px; }
+        article { float: left; width: 75%; padding: 20px; background-color: #fff; min-height: 600px; }
+        
+        .gallery { display: flex; flex-wrap: wrap; gap: 20px; }
+        .gallery-item { width: calc(33.33% - 20px); text-align: center; }
+        
+       .gallery img { 
+    width: 100%; 
+    aspect-ratio: 1/1; /* Semua jadi kotak rapi */
+    object-fit: cover; 
+    border: 5px solid #ccc; 
+    border-radius: 10px; 
+    transition: all 0.4s ease; 
+}
+
+        /* Penanda area info */
+        #info-panel {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #856404;
+        }
+
+        section::after { content: ""; display: table; clear: both; }
+        footer { background-color: #222; padding: 10px; text-align: center; color: white; clear: both; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>Eksperimen Mouse Event</h2>
+    </header>
+
+    <section>
+        <nav>
+            <ul style="list-style: none; padding: 0;">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gambar.html">Gambar</a></li>
+                <li><a href="event.html">Event</a></li>
+            </ul>
+        </nav>
+
+        <article>
+            <div id="info-panel">Arahkan atau klik gambar di bawah untuk melihat perbedaan efek!</div>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <p><small>Berubah menjadi Abu-abu ketika Mouse diarahkan</small></p>
+                    <img src="gambar/1.jpeg" 
+                         onmouseover="this.style.filter='grayscale(100%)'" 
+                         onmouseout="this.style.filter='grayscale(0%)'">
+                </div>
+
+                <div class="gallery-item">
+                    <p><small>Zoom In ketika Mouse diarahkan</small></p>
+                    <img src="gambar/2.jpeg" 
+                         onmouseover="this.style.transform='scale(1.2)'; this.style.zIndex='10'; this.style.position='relative'" 
+                         onmouseout="this.style.transform='scale(1)'">
+                </div>
+
+                <div class="gallery-item">
+                    <p><small>Berkedip ketika Mouse diklik</small></p>
+                    <img src="gambar/3.jpeg" 
+                         onmousedown="this.style.opacity='0.2'" 
+                         onmouseup="this.style.opacity='1'">
+                </div>
+
+                <div class="gallery-item">
+                    <p><small>Ubah Bentuk Oval ketika Double klik</small></p>
+                    <img src="gambar/4.jpeg" 
+                         ondblclick="this.style.borderRadius='50%'" 
+                         onclick="this.style.borderRadius='10px'">
+                </div>
+
+                <div class="gallery-item">
+                    <p><small>Gambar berubah miring ketika Mouse diarahkan</small></p>
+                    <img src="gambar/5.jpeg" 
+                         onmouseover="this.style.transform='rotate(15deg)'" 
+                         onmouseout="this.style.transform='rotate(0deg)'">
+                </div>
+
+      <div class="gallery-item">
+    <p><small>Menukar Gambar baru ketika Mouse diarahkan</small></p>
+    <img src="gambar/6.jpeg" 
+         id="fotoTukar"
+         style="width: 100%; aspect-ratio: 1/1; object-fit: cover;"
+         onmouseover="this.src='gambar/7.jpeg';" 
+         onmouseout="this.src='gambar/6.jpeg';">
+</div>
+            </div>
+        </article>
+    </section>
+
+    <footer>
+        <p>Hafidh Gilang Ramadhan - 253307047</p>
+    </footer>
+
+</body>
+</html>

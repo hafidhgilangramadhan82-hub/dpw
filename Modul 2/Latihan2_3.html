@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href='css/main.css'>
+    <meta charset="UTF-8">
+    <title>Latihan Form - latihan_2_3</title>
+    <link rel="icon" type="img/png" href="gambar/icon.png" sizes="16x16" />
+    <style>
+        /* CSS untuk visualisasi struktur */
+        #header { background-color: #f2f2f2; padding: 20px; text-align: center; border: 1px solid #ccc; }
+        #main { display: flex; margin: 10px 0; gap: 10px; min-height: 200px; }
+        #link { width: 25%; background-color: #e6f7ff; padding: 15px; border: 1px solid #91d5ff; }
+        #content { width: 75%; background-color: #ffffff; padding: 15px; border: 1px solid #d9d9d9; }
+        #footer { background-color: #333; color: white; padding: 10px; text-align: center; }
+        
+        /* Penyelarasan tampilan form sederhana */
+        table td { padding: 5px; vertical-align: top; }
+        fieldset { border: 1px solid #ccc; padding: 10px; }
+    </style>
+</head>
+<body>
+
+    <div id="header">
+        <h1>Header Halaman</h1>
+    </div>
+
+    <div id="main">
+        <div id="link">
+            <h3>Kota Favorit</h3>
+            <ul>
+                <li><a href="#">London</a></li>
+                <li><a href="#">Paris</a></li>
+                <li><a href="#">Tokyo</a></li>
+            </ul>
+        </div>
+
+        <div id="content">
+            <fieldset>
+                <legend>Form Pendaftaran Mahasiswa Baru</legend>
+                <form action="proses.php" method="POST">
+                    <table>
+                        <tr>
+                            <td>Nama Lengkap</td>
+                            <td><input type="text" name="nama_lengkap" size="30"></td>
+                        </tr>
+                        <tr>
+                            <td>Tempat/Tanggal Lahir</td>
+                            <td>
+                                <input type="text" name="tempat_lahir" size="15"> / 
+                                <select name="tgl">
+                                    <script>for(let i=1;i<=31;i++) document.write(`<option>${i}</option>`);</script>
+                                </select>
+                                <select name="bln">
+                                    <script>for(let i=1;i<=12;i++) document.write(`<option>${i}</option>`);</script>
+                                </select>
+                                <select name="thn">
+                                    <option>1989</option>
+                                    <option>1990</option>
+                                    <option>1991</option>
+                                    <option>1992</option>
+                                    <option>1993</option>
+                                    <option>1994</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Agama</td>
+                            <td>
+                                <select name="agama">
+                                    <option value="">-PILIH-</option>
+                                    <option>Islam</option>
+                                    <option>Kristen</option>
+                                    <option>Katolik</option>
+                                    <option>Hindu</option>
+                                    <option>Budha</option>
+                                    <option>Konghucu</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jenis Kelamin</td>
+                            <td>
+                                <input type="radio" name="jk" value="L"> Laki-laki
+                                <input type="radio" name="jk" value="P"> Perempuan
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>No. Ijazah SMA/MA</td>
+                            <td><input type="text" name="no_ijazah"></td>
+                        </tr>
+                        <tr>
+                            <td>Foto (Maks. 20 KB)</td>
+                            <td><input type="file" name="foto"></td>
+                        </tr>
+                        <tr>
+                            <td>Nama Ayah</td>
+                            <td><input type="text" name="nama_ayah"></td>
+                        </tr>
+                        <tr>
+                            <td>Nama Ibu</td>
+                            <td><input type="text" name="nama_ibu"></td>
+                        </tr>
+                        <tr>
+                            <td>Alamat Rumah</td>
+                            <td><textarea name="alamat_rumah" rows="4" cols="30"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>No. Telp</td>
+                            <td><input type="text" name="no_telp"></td>
+                        </tr>
+                        <tr>
+                            <td>Nama Sekolah Asal</td>
+                            <td><input type="text" name="sekolah_asal"></td>
+                        </tr>
+                        <tr>
+                            <td>Alamat Sekolah Asal</td>
+                            <td><textarea name="alamat_sekolah" rows="4" cols="30"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td>Jurusan Dipilih</td>
+                            <td>
+                                <select name="jurusan">
+                                    <option value="">-PILIH-</option>
+                                    <option>Komputerisasi Akuntansi</option>
+                                    <option>Administrasi Bisnis</option>
+                                    <option>Teknik Komputer Kontrol</option>
+                                    <option>Teknik Listrik</option>
+                                    <option>Mesin Otomotif</option>
+                                    <option>Perkeretaapian</option>
+                                    <option>Teknologi Informasi</option>
+                                    <option>Akuntansi</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Tahu informasi ini dari:</td>
+                            <td>
+                                <input type="checkbox" name="sumber[]" value="Koran"> Koran
+                                <input type="checkbox" name="sumber[]" value="Website"> Website
+                                <input type="checkbox" name="sumber[]" value="Televisi"> Televisi
+                                <input type="checkbox" name="sumber[]" value="Radio"> Radio
+                                <input type="checkbox" name="sumber[]" value="Teman"> Teman
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="submit" value="DAFTAR">
+                                <input type="reset" value="BATAL">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </fieldset>
+        </div>
+    </div>
+
+    <div id="footer">
+        <i>&copy; Copyright@Hafidh Gilang Ramadhan</i>
+    </div>
+
+</body>
+</html>

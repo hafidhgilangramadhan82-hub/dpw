@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href='css/main.css'>
+    <meta charset="UTF-8">
+    <title>Latihan Layout Gambar - latihan_2_6</title>
+    <link rel="icon" type="img/png" href="gambar/icon.png" sizes="16x16" />
+    <style>
+        /* Struktur Layout Dasar */
+        #header { background-color: #f2f2f2; padding: 20px; text-align: center; border: 1px solid #ccc; }
+        #main { display: flex; margin: 10px 0; gap: 10px; min-height: 400px; }
+        #link { width: 20%; background-color: #e6f7ff; padding: 15px; border: 1px solid #91d5ff; }
+        #content { width: 80%; background-color: #ffffff; padding: 20px; border: 1px solid #d9d9d9; text-align: center; }
+        #footer { background-color: #333; color: white; padding: 10px; text-align: center; clear: both; }
+
+        /* Gaya Baris Gambar Sejajar (Flexbox) */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        /* Gaya Setiap Item Link - Efek Animasi Dihapus */
+        .image-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            width: 200px;
+            /* Transition dihapus agar tidak ada jeda animasi */
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 3px solid #eee;
+            /* Box-shadow dihapus agar gambar terlihat datar */
+        }
+
+        /* Bagian Hover Dihapus Total */
+
+        .image-card span {
+            margin-top: 12px;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header">
+        <h1>Header Halaman</h1>
+    </div>
+
+    <div id="main">
+        <div id="link">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="#">London</a></li>
+                <li><a href="#">Paris</a></li>
+                <li><a href="#">Tokyo</a></li>
+            </ul>
+        </div>
+
+        <div id="content">
+            <h2>Galeri Gambar</h2>
+            <p>Klik salah satu gambar di bawah ini untuk menuju informasi terkait:</p>
+
+            <div class="image-container">
+                
+                <a href="https://id.wikipedia.org/wiki/Komputer" class="image-card">
+                    <img src="gambar/komputer.jpeg" alt="Komputer">
+                    <span>Komputer</span>
+                </a>
+
+                <a href="https://id.wikipedia.org/wiki/Telepon_genggam" class="image-card">
+                    <img src="gambar/ponsel.jpeg" alt="Ponsel">
+                    <span>Telepon Genggam</span>
+                </a>
+
+                <a href="https://id.wikipedia.org/wiki/Kopi" class="image-card">
+                    <img src="gambar/kopi.jpeg" alt="Kopi">
+                    <span>Kopi</span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <i>&copy; Copyright@Hafidh Gilang Ramadhan</i>
+    </div>
+
+</body>
+</html>

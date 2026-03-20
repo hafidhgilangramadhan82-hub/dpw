@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href='css/main.css'>
+    <meta charset="UTF-8">
+    <title>Latihan Link Bookmark - latihan_2_5</title>
+    <link rel="icon" type="img/png" href="gambar/icon.png" sizes="16x16" />
+    <style>
+        /* CSS tetap dipertahankan untuk struktur layout */
+        #header { background-color: #f2f2f2; padding: 20px; text-align: center; border: 1px solid #ccc; }
+        #main { display: flex; margin: 10px 0; gap: 10px; min-height: 200px; }
+        #link { width: 25%; background-color: #e6f7ff; padding: 15px; border: 1px solid #91d5ff; }
+        #content { width: 75%; background-color: #ffffff; padding: 15px; border: 1px solid #d9d9d9; max-height: 500px; overflow-y: scroll; }
+        #footer { background-color: #333; color: white; padding: 10px; text-align: center; }
+        
+        /* Memberi jarak antar chapter agar fungsi scroll terlihat */
+        .chapter-box { margin-bottom: 300px; } 
+    </style>
+</head>
+<body>
+
+    <div id="header">
+        <h1>Header Halaman</h1>
+    </div>
+
+    <div id="main">
+        <div id="link">
+            <h3>Kota Favorit</h3>
+            <ul>
+                <li><a href="#">London</a></li>
+                <li><a href="#">Paris</a></li>
+                <li><a href="#">Tokyo</a></li>
+            </ul>
+        </div>
+
+        <div id="content">
+            <p><a href="#C4">Jump to Chapter 4</a></p>
+            <p><a href="#C10">Jump to Chapter 10</a></p>
+            <p><a href="#C20">Jump to Chapter 20</a></p>
+            
+            <p><b>Kesimpulan:</b> Link bookmark sangat berguna untuk navigasi pada halaman web yang memiliki konten sangat panjang, sehingga memudahkan pengguna menuju bagian tertentu tanpa harus melakukan scroll manual secara berlebihan.</p>
+
+            <hr>
+
+            <div class="chapter-box"><h2>Chapter 1</h2><p>This chapter explains ba bla bla</p></div>
+            <div class="chapter-box"><h2>Chapter 2</h2><p>This chapter explains ba bla bla</p></div>
+            <div class="chapter-box"><h2>Chapter 3</h2><p>This chapter explains ba bla bla</p></div>
+            
+            <div class="chapter-box"><h2 id="C4">Chapter 4</h2><p>This chapter explains ba bla bla (Target Bookmark 4)</p></div>
+            
+            <div class="chapter-box"><h2>Chapter 5</h2><p>Content...</p></div>
+            <div class="chapter-box"><h2>Chapter 6</h2><p>Content...</p></div>
+            <div class="chapter-box"><h2>Chapter 7</h2><p>Content...</p></div>
+            <div class="chapter-box"><h2>Chapter 8</h2><p>Content...</p></div>
+            <div class="chapter-box"><h2>Chapter 9</h2><p>Content...</p></div>
+
+            <div class="chapter-box"><h2 id="C10">Chapter 10</h2><p>This chapter explains ba bla bla (Target Bookmark 10)</p></div>
+
+            <div class="chapter-box"><h2>Chapter 11-19</h2><p>Konten panjang lainnya...</p></div>
+
+            <div class="chapter-box"><h2 id="C20">Chapter 20</h2><p>This chapter explains ba bla bla (Target Bookmark 20)</p></div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <i>&copy; Copyright@Hafidh Gilang Ramadhan</i>
+    </div>
+
+</body>
+</html>

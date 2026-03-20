@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href='css/main.css'>
+    <meta charset="UTF-8">
+    <title>Latihan Warna CSS - latihan_2_5</title>
+    <link rel="icon" type="img/png" href="gambar/icon.png" sizes="16x16" />
+    <style>
+        /* CSS tetap dipertahankan untuk struktur layout agar rapi */
+        #header { background-color: #f2f2f2; padding: 20px; text-align: center; border: 1px solid #ccc; }
+        #main { display: flex; margin: 10px 0; gap: 10px; min-height: 200px; }
+        #link { width: 30%; background-color: #e6f7ff; padding: 15px; border: 1px solid #91d5ff; }
+        #content { width: 70%; background-color: #ffffff; padding: 15px; border: 1px solid #d9d9d9; }
+        #footer { background-color: #333; color: white; padding: 10px; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div id="header">
+        <h1>Header Halaman</h1>
+    </div>
+
+    <div id="main">
+        <div id="link">
+            <h3>Kota Favorit</h3>
+            <ul>
+                <li><a href="#">London</a></li>
+                <li><a href="#">Paris</a></li>
+                <li><a href="#">Tokyo</a></li>
+            </ul>
+        </div>
+
+        <div id="content">
+            <p>Cara menggunakan style warna dengan nama "Tomato":</p>
+            <h1 style="background-color:tomato;">Tomato</h1>
+
+            <p>Cara menggunakan warna style dengan rgb, hex, dan hsl dengan nilai yang sama dengan tomato:</p>
+            <h1 style="background-color:rgb(255, 99, 71);">rgb(255, 99, 71)</h1>
+            <h1 style="background-color:#ff6347;">#ff6347</h1>
+            <h1 style="background-color:hsl(9, 100%, 64%);">hsl(9, 100%, 64%)</h1>
+
+            <p>Menggunakan "Tomato", dengan tingkat transparansi 50%:</p>
+            <h1 style="background-color:rgba(255, 99, 71, 0.5);">rgba(255, 99, 71, 0.5)</h1>
+            <h1 style="background-color:hsla(9, 100%, 64%, 0.5);">hsla(9, 100%, 64%, 0.5)</h1>
+
+            <p>Selain nama warna yang telah ditentukan sebelumnya, warna dapat ditentukan menggunakan RGB, HEX, HSL, atau bahkan warna transparan menggunakan nilai warna RGBA atau HSLA</p>
+        </div>
+    </div>
+
+    <div id="footer">
+        <i>&copy; Copyright@Hafidh Gilang Ramadhan</i>
+    </div>
+
+</body>
+</html>

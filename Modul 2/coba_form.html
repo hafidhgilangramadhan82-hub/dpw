@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Praktikum Form Lengkap</title>
+    <link rel="icon" type="img/png" href="gambar/icon.png" sizes="16x16" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto; background-color: #f4f4f4; }
+        .card { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        hr { border: 0; border-top: 1px solid #eee; margin: 20px 0; }
+        .kesimpulan { background-color: #eef7ff; padding: 15px; border-left: 4px solid #007bff; margin-top: 10px; font-size: 0.95em; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h3>Uji coba 1: Text & Password</h3>
+        <label for="username">type "text" :</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="pwd">type "password" :</label><br>
+        <input type="password" id="pwd" name="pwd">
+    </div>
+
+    <div class="card">
+        <h3>Uji coba 2: Radio Button (Pilihan Tunggal)</h3>
+        <input type="radio" id="html" name="bahasa" value="HTML"> <label for="html">HTML</label><br>
+        <input type="radio" id="css" name="bahasa" value="CSS"> <label for="css">CSS</label><br>
+        <input type="radio" id="javascript" name="bahasa" value="JavaScript"> <label for="javascript">JavaScript</label>
+        
+        <div class="kesimpulan">
+            <p><b>Kesimpulan Radio:</b> Atribut <code>name</code> yang sama mengelompokkan radio button sehingga hanya satu opsi yang bisa dipilih. Jika <code>name</code> berbeda, maka semua pilihan bisa dipilih sekaligus.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Uji coba 3: Checkbox (Pilihan Ganda)</h3>
+        <input type="checkbox" id="id1" name="v1" value="Bike"> <label for="id1">I have a bike</label><br>
+        <input type="checkbox" id="id2" name="v2" value="Car"> <label for="id2">I have a car</label><br>
+        <input type="checkbox" id="id3" name="v3" value="Boat"> <label for="id3">I have a boat</label>
+        
+        <div class="kesimpulan">
+            <p><b>Kesimpulan Checkbox:</b> Checkbox memungkinkan pengguna memilih lebih dari satu opsi sekaligus tanpa dibatasi oleh atribut <code>name</code>.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Form Sederhana: Submit, Reset, Target & Method</h3>
+        <form action="/action_page.php" method="get" target="_self">
+            <label for="depan">Nama depan:</label><br>
+            <input type="text" id="depan" name="i_name" value="Budi"><br>
+            
+            <label for="n_belakang">Nama Belakang:</label><br>
+            <input type="text" id="n_belakang" name="i_belakan" value="Prawira"><br><br>
+            
+            <input type="submit" value="Kirim">
+            <input type="reset" value="Reset">
+        </form>
+
+        <div class="kesimpulan">
+            <p><b>Kesimpulan Form:</b> 
+                * Tombol <b>Reset</b> akan mengembalikan isi data ke nilai awal (default).
+                * Atribut <b>target="_blank"</b> akan membuka hasil pengiriman di tab baru, sedangkan <b>"_self"</b> di tab yang sama.
+                * <b>Method="get"</b> akan menampilkan data di URL, sementara <b>"post"</b> menyembunyikannya untuk keamanan.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

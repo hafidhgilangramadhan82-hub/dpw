@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Praktikum Tipe Input Lengkap 1-9</title>
+    <link rel="icon" type="img/png" href="gambar/icon.png" sizes="16x16" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; max-width: 900px; margin: auto; background-color: #f0f2f5; }
+        .card { background: white; padding: 20px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h3 { color: #1a73e8; border-bottom: 2px solid #e8f0fe; padding-bottom: 5px; }
+        .kesimpulan { background-color: #fff9c4; padding: 15px; border-left: 5px solid #fbc02d; margin-top: 15px; font-size: 0.95em; border-radius: 4px; }
+        label { font-weight: bold; display: inline-block; margin-top: 10px; }
+        input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="number"] {
+            width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align:center;">Laporan Praktikum Pemrograman Web</h1>
+
+    <div class="card">
+        <h3>Uji coba 1: Text & Password</h3>
+        <label for="username">type "text" :</label>
+        <input type="text" id="username" name="username">
+        
+        <label for="pwd">type "password" :</label>
+        <input type="password" id="pwd" name="pwd">
+    </div>
+
+    <div class="card">
+        <h3>Uji coba 2: Radio Button</h3>
+        <p>Pilih bahasa pemrograman (Hanya bisa satu):</p>
+        <input type="radio" id="html" name="bahasa" value="HTML"> <label for="html">HTML</label><br>
+        <input type="radio" id="css" name="bahasa" value="CSS"> <label for="css">CSS</label><br>
+        <input type="radio" id="javascript" name="bahasa" value="JavaScript"> <label for="javascript">JavaScript</label>
+        <div class="kesimpulan">
+            <b>Kesimpulan:</b> Atribut <code>name</code> yang sama mengelompokkan radio button agar bersifat eksklusif (hanya satu yang terpilih).
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Uji coba 3: Checkbox</h3>
+        <p>Pilih kendaraan yang dimiliki (Bisa lebih dari satu):</p>
+        <input type="checkbox" id="id1" name="v1" value="Bike"> <label for="id1">I have a bike</label><br>
+        <input type="checkbox" id="id2" name="v2" value="Car"> <label for="id2">I have a car</label><br>
+        <input type="checkbox" id="id3" name="v3" value="Boat"> <label for="id3">I have a boat</label>
+        <div class="kesimpulan">
+            <b>Kesimpulan:</b> Checkbox memungkinkan pengguna untuk memilih banyak opsi sekaligus.
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Uji coba 4 & 5: Color, Date, Email</h3>
+        <label for="favcolor">Pilih Warna:</label> <input type="color" id="favcolor" name="favcolor"><br>
+        <label for="b">Pilih Tanggal:</label> <input type="date" id="b" name="tanggal"><br><br>
+        <input type="button" onclick="alert('Hello World!')" value="Click Me!"><br>
+        
+        <label for="email">Enter your email:</label>
+        <input type="email" id="email" name="email">
+        <div class="kesimpulan">
+            <b>Kesimpulan:</b> Type <code>email</code> memberikan validasi format otomatis, sedangkan <code>button</code> menjalankan aksi JavaScript.
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Uji coba 6: Image, File, Hidden</h3>
+        <label>Input Image (sebagai submit):</label><br>
+        <input type="image" src="gambar/download.png" alt="Submit" width="48" height="48"><br>
+        
+        <label for="myfile">Pilih file untuk diunggah:</label>
+        <input type="file" id="myfile" name="myfile"><br>
+        
+        <input type="hidden" id="custId" name="custId" value="3487">
+        <div class="kesimpulan">
+            <b>Kesimpulan:</b> <code>hidden</code> digunakan untuk menyimpan data yang tidak perlu dilihat user, dan <code>file</code> untuk upload dokumen.
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Uji coba 7: Number & Range</h3>
+        <label for="quantity">Quantity (1-10):</label>
+        <input type="number" id="quantity" name="quantity" min="1" max="10">
+        
+        <label for="vol">Volume Slider (-50 sampai 50):</label>
+        <input type="range" id="vol" name="vol" min="-50" max="50">
+        <div class="kesimpulan">
+            <b>Kesimpulan:</b> Mengubah <code>min="-50"</code> memperluas rentang geser slider ke arah negatif.
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Uji coba 8: URL, Search, Tel</h3>
+        <label for="homepage">Add your homepage (URL):</label>
+        <input type="url" id="homepage" name="homepage">
+        
+        <label for="gsearch">Search Google:</label>
+        <input type="search" id="gsearch" name="gsearch">
+        
+        <label for="ph">Phone Number (Format: 08x-xxx-xxx):</label>
+        <input type="tel" id="ph" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}">
+        <div class="kesimpulan">
+            <b>Kesimpulan:</b> Type <code>url</code> dan <code>tel</code> membantu memastikan input sesuai dengan format yang diinginkan.
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Uji coba 9: Time & Week</h3>
+        <label for="appt">Select a time:</label>
+        <input type="time" id="appt" name="appt">
+        
+        <label for="week">Select a week:</label>
+        <input type="week" id="week" name="week">
+        <div class="kesimpulan">
+            <b>Kesimpulan:</b> Tipe ini menyediakan antarmuka pemilih (picker) waktu dan minggu secara visual.
+        </div>
+    </div>
+
+</body>
+</html>

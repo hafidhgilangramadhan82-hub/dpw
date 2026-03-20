@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Halaman Gambar</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Hafidh Gilang Ramadhan">
+    <meta name="nim" content="253307047">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+        header {
+            background-color: #666;
+            padding: 30px;
+            text-align: center;
+            font-size: 35px;
+            color: white;
+        }
+        nav {
+            float: left;
+            width: 30%;
+            
+            min-height: 500px; 
+            background: #ccc;
+            padding: 20px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        article {
+            float: left;
+            padding: 20px;
+            width: 70%;
+            background-color: #f1f1f1;
+            min-height: 500px;
+        }
+  
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .gallery img {
+            width: calc(33.33% - 10px); 
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .gallery img:hover {
+            opacity: 0.7;
+        }
+
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        footer {
+            background-color: #777;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            nav, article {
+                width: 100%;
+                height: auto;
+            }
+            .gallery img {
+                width: 100%; /* Gambar jadi satu baris jika di HP */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>December Moment</h2>
+    </header>
+
+    <section>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gambar.html">Gambar</a></li>
+                <li><a href="event.html">Event</a></li>
+                <li><a href="audio.html">Audio</a></li>
+                <li><a href="video.html">Video</a></li>
+                <li><a href="svg.html">SVG</a></li>
+                <li><a href="canvas.html">Canvas</a></li>
+            </ul>
+        </nav>
+
+        <article>
+            <h3>Galery in December</h3>
+            <div class="gallery">
+                <img src="gambar/1.jpeg" alt="Pemandangan 1">
+                <img src="gambar/2.jpeg" alt="Pemandangan 2">
+                <img src="gambar/3.jpeg" alt="Pemandangan 3">
+                <img src="gambar/4.jpeg" alt="Pemandangan 4">
+                <img src="gambar/5.jpeg" alt="Pemandangan 5">
+                <img src="gambar/6.jpeg" alt="Pemandangan 6">
+            </div>
+        </article>
+    </section>
+
+    <footer>
+        <p>Hafidh Gilang Ramadhan - 253307047</p>
+    </footer>
+
+</body>
+</html>
