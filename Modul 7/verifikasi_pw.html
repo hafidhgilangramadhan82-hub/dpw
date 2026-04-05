@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifikasi Password - Teal Edition</title>
+    <style>
+        :root {
+            --primary-teal: #17a2b8;
+            --secondary-teal: #117a8b;
+            --bg-soft: #e1f5f8;
+            --text-dark: #2c3e50;
+        }
+
+        /* Latar Belakang Gradasi Konsisten */
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #f4f7f6 0%, var(--bg-soft) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Card Form Modern */
+        .card {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 380px;
+            border-top: 6px solid var(--primary-teal);
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: var(--text-dark);
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        /* Input Grouping */
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #666;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #edf2f4;
+            border-radius: 12px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background-color: #fcfdfe;
+            outline: none;
+        }
+
+        input[type="password"]:focus {
+            border-color: var(--primary-teal);
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(23, 162, 184, 0.1);
+        }
+
+        /* Tombol Proses Teal */
+        .btn-submit {
+            width: 100%;
+            background-color: var(--primary-teal);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(23, 162, 184, 0.2);
+        }
+
+        .btn-submit:hover {
+            background-color: var(--secondary-teal);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(23, 162, 184, 0.3);
+        }
+
+        .btn-submit:active {
+            transform: scale(0.97);
+        }
+
+        /* Footer Identitas */
+        .footer-id {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #bdc3c7;
+            border-top: 1px solid #f1f2f6;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Atur Password</h2>
+        <form name="formtes">
+            <div class="input-group">
+                <label>Password Baru</label>
+                <input type="password" name="password_1" placeholder="Masukkan password" autocomplete="new-password">
+            </div>
+
+            <div class="input-group">
+                <label>Konfirmasi Password</label>
+                <input type="password" name="password_2" placeholder="Ulangi password" autocomplete="new-password">
+            </div>
+
+            <input type="button" class="btn-submit" value="Simpan Perubahan" onclick="cekpassword()">
+        </form>
+
+        <div class="footer-id">
+            <strong>Atur ulang password</strong><br>
+        </div>
+    </div>
+
+    <script>
+        function cekpassword() {
+            // Mengambil nilai dari form
+            const pw1 = document.formtes.password_1.value;
+            const pw2 = document.formtes.password_2.value;
+
+            if (pw1 === "" || pw2 === "") {
+                alert(" Maaf, password tidak boleh kosong!");
+            } else if (pw1 !== pw2) {
+                alert(" Password tidak cocok! Silakan periksa kembali."); 
+            } else {
+                alert("Password cocok! Perubahan berhasil disimpan.");
+                
+            }
+        }
+    </script>
+</body>
+</html>

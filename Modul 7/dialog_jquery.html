@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Dialog - Teal Edition</title>
+    
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <style>
+        :root {
+            --primary-tosca: #17a2b8;
+            --dark-tosca: #117a8b;
+            --bg-soft: #f8fafc;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+            background: linear-gradient(135deg, #f4f7f6 0%, #d1e8e2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h2 { color: #2c3e50; font-weight: 700; margin-bottom: 10px; }
+        p { color: #64748b; margin-bottom: 30px; }
+
+        /* Tombol Pemicu Tosca */
+        #buka-dialog {
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            background: var(--primary-tosca);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(23, 162, 184, 0.2);
+        }
+
+        #buka-dialog:hover {
+            background: var(--dark-tosca);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px rgba(23, 162, 184, 0.3);
+        }
+
+        /* Styling Dialog jQuery UI (Custom) */
+        .ui-dialog {
+            border-radius: 20px !important;
+            padding: 0 !important;
+            border: none !important;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15) !important;
+            overflow: hidden;
+        }
+
+        /* Header Dialog */
+        .ui-dialog-titlebar {
+            background: var(--primary-tosca) !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 0 !important;
+            padding: 15px 20px !important;
+            font-size: 18px;
+        }
+
+        /* Konten Dialog */
+        .ui-dialog-content {
+            padding: 30px 25px !important;
+            color: #4a5568 !important;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* Panel Tombol Dialog */
+        .ui-dialog-buttonpane {
+            background: #f8fafc !important;
+            border-top: 1px solid #edf2f7 !important;
+            padding: 10px 15px !important;
+        }
+
+        /* Button di dalam Dialog */
+        .ui-dialog-buttonset button {
+            border-radius: 8px !important;
+            font-weight: 600 !important;
+            padding: 8px 18px !important;
+            transition: 0.2s !important;
+        }
+
+        .ui-dialog-buttonset button:first-child {
+            background: var(--primary-tosca) !important;
+            color: white !important;
+            border: none !important;
+        }
+
+        .ui-dialog-buttonset button:first-child:hover {
+            background: var(--dark-tosca) !important;
+        }
+
+        /* Menghilangkan Tombol Close X bawaan */
+        .ui-dialog-titlebar-close { display: none; }
+
+        .footer-id {
+            position: fixed;
+            bottom: 30px;
+            font-size: 12px;
+            color: #94a3b8;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Modern Basic Dialog</h2>
+    <p>Implementasi jQuery UI.</p>
+    
+    <button id="buka-dialog">Buka Konfirmasi</button>
+
+    <div id="kotak-dialog" title="Sistem Notifikasi">
+        <p>Ini adalah tampilan jendela Basic Dialog menggunakan jQuery UI. Anda bisa memasukkan informasi apa pun di sini.</p>
+    </div>
+
+    <div class="footer-id">
+        <strong>Hafidh Gilang Ramadhan</strong> | NIM: 253307047
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Inisialisasi Dialog
+            $("#kotak-dialog").dialog({
+                autoOpen: false,
+                modal: true,
+                width: 400,
+                resizable: false,
+                draggable: true,
+                buttons: {
+                    "Oke, Paham": function() {
+                        $(this).dialog("close");
+                    },
+                    "Tutup": function() {
+                        $(this).dialog("close");
+                    }
+                },
+                show: { effect: "blind", duration: 500 }, 
+                hide: { effect: "fade", duration: 300 }   
+            });
+
+            // Trigger buka dialog
+            $("#buka-dialog").on("click", function() {
+                $("#kotak-dialog").dialog("open");
+            });
+        });
+    </script>
+
+</body>
+</html>

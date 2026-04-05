@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jam Real-Time Modern</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #1a1a2e; /* Warna gelap agar elegan */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+        }
+
+        .clock-container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        #tanggal {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #00d2ff;
+            margin-bottom: 10px;
+        }
+
+        #jam {
+            font-size: 5rem;
+            font-weight: bold;
+            margin: 0;
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+        }
+
+        .detik {
+            font-size: 2rem;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="clock-container">
+        <div id="tanggal">Memuat Tanggal...</div>
+        <div id="jam">00:00:<span class="detik">00</span></div>
+    </div>
+
+    <script>
+        function updateWaktu() {
+            const sekarang = new Date();
+
+            // Format Tanggal (Contoh: Jumat, 3 April 2026)
+            const opsiTanggal = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            const tanggalStr = sekarang.toLocaleDateString('id-ID', opsiTanggal);
+
+            // Format Jam, Menit, Detik
+            let jam = sekarang.getHours().toString().padStart(2, '0');
+            let menit = sekarang.getMinutes().toString().padStart(2, '0');
+            let detik = sekarang.getSeconds().toString().padStart(2, '0');
+
+            // Menampilkan ke HTML
+            document.getElementById('tanggal').innerHTML = tanggalStr;
+            document.getElementById('jam').innerHTML = `${jam}:${menit}:<span class="detik">${detik}</span>`;
+        }
+
+        // Jalankan fungsi setiap 1000 milidetik (1 detik)
+        setInterval(updateWaktu, 1000);
+
+        // Jalankan sekali di awal agar tidak menunggu 1 detik pertama
+        updateWaktu();
+    </script>
+
+</body>
+</html>
