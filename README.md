@@ -4,7 +4,7 @@
 Selamat datang di repositori **Desain dan Pemrograman Web**. Repositori ini berisi kumpulan tugas, latihan, dan modul praktikum yang dikerjakan selama perkuliahan.
 
 ## 👤 Identitas Mahasiswa
-* **Nama:** Angger Binuko Paksi
+* **Nama:** Hafidh Gilang Ramadhan
 * **NIM:** 253307047
 * **Kelas:** 2B
 * **Program Studi:** Teknologi Informasi
