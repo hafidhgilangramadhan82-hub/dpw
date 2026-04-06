@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -148,4 +149,156 @@
     </script>
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Custom Alert</title>
+    <style>
+        :root {
+            --error-color: #ff4757;
+            --success-color: #2ed573;
+            --dark-color: #2f3542;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f1f2f6;
+        }
+
+        /* Overlay dengan animasi fade-in */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .overlay.show {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Alert Box dengan animasi zoom-in */
+        .alert-box {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -60%) scale(0.9);
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            text-align: center;
+            width: 90%;
+            max-width: 320px;
+            border-top: 6px solid var(--error-color);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .overlay.show .alert-box {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .alert-box h2 {
+            margin: 0 0 10px;
+            color: var(--dark-color);
+            font-size: 24px;
+        }
+
+        .alert-box p {
+            color: #57606f;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        .btn-close {
+            background: var(--error-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            width: 100%;
+        }
+
+        .btn-close:hover {
+            background: #ee3141;
+            box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
+        }
+
+        /* Tombol pemicu untuk demo */
+        .btn-trigger {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background: #5352ed;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="btn-trigger" onclick="tampilkanAlert('System Error', 'Koneksi database terputus. Silakan coba lagi.')">
+        Cek Error
+    </button>
+
+    <div id="customAlert" class="overlay" onclick="tutupAlert(event)">
+        <div class="alert-box" onclick="event.stopPropagation()">
+            <h2 id="alertTitle">Oops!</h2>
+            <p id="alertMessage">Terjadi kesalahan pada sistem.</p>
+            <button class="btn-close" onclick="tutupAlert()">Tutup</button>
+        </div>
+    </div>
+
+    <script>
+        const alertOverlay = document.getElementById("customAlert");
+        const alertTitle = document.getElementById("alertTitle");
+        const alertMessage = document.getElementById("alertMessage");
+
+        // Fungsi menampilkan alert dengan parameter (opsional)
+        function tampilkanAlert(judul, pesan) {
+            if(judul) alertTitle.innerText = judul;
+            if(pesan) alertMessage.innerText = pesan;
+            
+            alertOverlay.classList.add("show");
+        }
+
+        // Fungsi menutup alert
+        function tutupAlert(event) {
+            // Tutup hanya jika tombol ditekan atau area luar diklik
+            alertOverlay.classList.remove("show");
+        }
+
+        // Tutup dengan tombol ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                tutupAlert();
+            }
+        });
+
+        // Contoh: Muncul otomatis saat load
+        window.onload = function() {
+            setTimeout(() => {
+                tampilkanAlert('Selamat Datang', 'Pesan ini muncul otomatis saat halaman dimuat.');
+            }, 500);
+        };
+    </script>
+
+</body>
+>>>>>>> 620e85aaf55c99ed189da1542471f5f27cca2e93
 </html>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -32,4 +33,40 @@
     <p>Paragraf 4: Terkena selektor no 4 (cyan) karena merupakan saudara dari div (tapi bukan yang pertama setelahnya).</p>
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Combinator Selector</title>
+    <style>
+        div p {
+            color: red;
+        }
+
+        div > p {
+            background-color: yellow;
+        }
+
+        div + p {
+            background-color: darkgray;
+        }
+
+        div ~ p {
+            color: cyan;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <p>Paragraf 1: Terkena selektor no 1 (merah) dan no 2 (bg kuning) karena merupakan anak dalam div.</p>
+        <p>Paragraf 2: Terkena selektor no 1 (merah) dan no 2 (bg kuning) karena juga anak dalam div.</p>
+    </div>
+
+    <p>Paragraf 3: Terkena selektor no 3 (bg abu-abu) karena tepat setelah div, dan no 4 (cyan) sebagai saudara.</p>
+    <p>Paragraf 4: Terkena selektor no 4 (cyan) karena merupakan saudara dari div (tapi bukan yang pertama setelahnya).</p>
+
+</body>
+>>>>>>> 620e85aaf55c99ed189da1542471f5f27cca2e93
 </html>

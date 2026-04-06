@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -203,4 +204,211 @@
     </script>
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Download Progress - Teal Edition</title>
+    
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <style>
+        :root {
+            --primary-tosca: #17a2b8;
+            --dark-tosca: #117a8b;
+            --bg-light: #f1f5f9;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+            text-align: center; 
+            padding-top: 100px; 
+            background: linear-gradient(135deg, #f4f7f6 0%, #d1e8e2 100%);
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        h2 { color: #2c3e50; font-weight: 700; margin-bottom: 30px; }
+
+        /* Tombol Download Tosca */
+        #btn-download {
+            padding: 16px 35px;
+            font-size: 16px;
+            font-weight: 600;
+            background: var(--primary-tosca);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(23, 162, 184, 0.2);
+        }
+
+        #btn-download:hover { 
+            background: var(--dark-tosca); 
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px rgba(23, 162, 184, 0.3);
+        }
+
+        /* Styling Dialog jQuery UI */
+        .ui-dialog {
+            border-radius: 20px !important;
+            padding: 0 !important;
+            overflow: hidden;
+            border: none !important;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15) !important;
+        }
+
+        .ui-dialog-titlebar {
+            background: var(--primary-tosca) !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 0 !important;
+            padding: 15px 20px !important;
+        }
+
+        .ui-dialog-content {
+            padding: 30px 20px !important;
+        }
+
+        /* Custom Progress Bar */
+        #progressbar {
+            height: 12px !important;
+            border-radius: 10px !important;
+            background: #e9ecef !important;
+            border: none !important;
+            margin-top: 10px;
+        }
+
+        .ui-progressbar-value {
+            background: var(--primary-tosca) !important;
+            border: none !important;
+            border-radius: 10px !important;
+            transition: width 0.2s ease;
+        }
+
+        .progress-label {
+            font-weight: 700;
+            color: var(--secondary-teal);
+            margin-bottom: 10px;
+            display: block;
+            font-size: 14px;
+        }
+
+        /* Identitas di bawah tombol */
+        .footer-id {
+            margin-top: 50px;
+            font-size: 12px;
+            color: #7f8c8d;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Simulasi Download Manager</h2>
+    
+    <button id="btn-download">
+        <span class="ui-icon ui-icon-arrowthick-1-s" style="display:inline-block; vertical-align: middle; margin-right: 5px;"></span>
+        Mulai Unduhan
+    </button>
+
+    <div id="dialog-download" title="File Transfer">
+        <span class="progress-label">Menyiapkan...</span>
+        <div id="progressbar"></div>
+    </div>
+
+    <div class="footer-id">
+        <strong>HAFIDH GILANG RAMADHAN</strong><br>
+        TI-2B | 253307047
+    </div>
+
+    <script>
+    $(document).ready(function() {
+        var progressbar = $("#progressbar");
+        var progressLabel = $(".progress-label");
+        var dialogDownload = $("#dialog-download");
+
+        // 1. Inisialisasi Dialog
+        dialogDownload.dialog({
+            autoOpen: false,
+            closeOnEscape: false,
+            resizable: false,
+            modal: true,
+            width: 350,
+            show: { effect: "fade", duration: 300 },
+            buttons: [
+                {
+                    text: "Batal",
+                    click: function() { 
+                        $(this).dialog("close"); 
+                        // Reset jika dibatalkan
+                        progressbar.progressbar("value", 0);
+                    }
+                }
+            ]
+        });
+
+        // 2. Inisialisasi Progressbar
+        progressbar.progressbar({
+            value: 0,
+            change: function() {
+                var currentVal = progressbar.progressbar("value");
+                progressLabel.text("Mengunduh: " + currentVal + "%");
+            },
+            complete: function() {
+                progressLabel.text("Unduhan Selesai!");
+                // Ganti tombol Batal menjadi Tutup saat selesai
+                dialogDownload.dialog("option", "buttons", [
+                    {
+                        text: "Tutup",
+                        click: function() { $(this).dialog("close"); }
+                    }
+                ]);
+            }
+        });
+
+        // 3. Fungsi Simulasi dengan Kecepatan Dinamis
+        function mulaiDownload() {
+            var val = progressbar.progressbar("value") || 0;
+            
+            // Simulasi kecepatan download yang naik turun (acak)
+            var increment = Math.floor(Math.random() * 8) + 1;
+            progressbar.progressbar("value", val + increment);
+
+            if (val < 100) {
+                // Kecepatan antar frame acak agar lebih natural
+                var speed = Math.floor(Math.random() * 200) + 50;
+                setTimeout(mulaiDownload, speed);
+            }
+        }
+
+        // Event Handler Tombol
+        $("#btn-download").on("click", function() {
+            // Reset ke default
+            progressbar.progressbar("value", 0);
+            progressLabel.text("Memulai koneksi...");
+            
+            // Set tombol kembali ke "Batal" setiap kali mulai baru
+            dialogDownload.dialog("option", "buttons", [
+                {
+                    text: "Batal",
+                    click: function() { $(this).dialog("close"); }
+                }
+            ]);
+
+            dialogDownload.dialog("open");
+            
+            // Delay sedikit sebelum progres berjalan
+            setTimeout(mulaiDownload, 800);
+        });
+    });
+    </script>
+
+</body>
+>>>>>>> 620e85aaf55c99ed189da1542471f5f27cca2e93
 </html>
