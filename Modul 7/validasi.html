@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validasi Masukan - Teal Edition</title>
+    <style>
+        :root {
+            --primary-teal: #17a2b8;
+            --secondary-teal: #117a8b;
+            --bg-soft: #e1f5f8;
+            --text-dark: #2c3e50;
+        }
+
+        /* Latar belakang gradasi Teal yang konsisten */
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #f4f7f6 0%, var(--bg-soft) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Kotak utama (Card) */
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 360px;
+            text-align: center;
+            border-top: 6px solid var(--primary-teal);
+        }
+
+        h2 {
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        /* Form Group */
+        .form-group {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Desain Input Text Teal */
+        input[type="text"] {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #edf2f4;
+            border-radius: 12px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            outline: none;
+            font-size: 16px;
+            background-color: #fcfdfe;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--primary-teal);
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(23, 162, 184, 0.1);
+        }
+
+        /* Desain Tombol Kirim Teal */
+        input[type="button"] {
+            width: 100%;
+            background-color: var(--primary-teal);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(23, 162, 184, 0.2);
+        }
+
+        input[type="button"]:hover {
+            background-color: var(--secondary-teal);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(23, 162, 184, 0.3);
+        }
+
+        input[type="button"]:active {
+            transform: scale(0.97);
+        }
+
+        /* Identitas Mahasiswa di bawah form */
+        .footer-info {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #bdc3c7;
+            border-top: 1px solid #f1f2f6;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Validasi Data</h2>
+        <p class="subtitle">Silakan masukkan identitas Anda</p>
+        
+        <form name="formku">
+            <div class="form-group">
+                <label for="nama">Nama Lengkap</label>
+                <input type="text" name="nama" id="nama" placeholder="Contoh: Hafidh Gilang" autocomplete="off">
+            </div>
+            
+            <input type="button" value="Kirim Data" onclick="ceknama(this.form)">
+        </form>
+
+        <div class="footer-info">
+            <strong>Hafidh Gilang Ramadhan</strong><br>
+            NIM: 253307047 | TI-2B
+        </div>
+    </div>
+
+    <script>
+        function ceknama(form) {
+            // Mengambil nilai dari input pertama
+            const namaValue = form.elements[0].value.trim();
+
+            if (namaValue === "") {
+                alert("Nama tidak boleh kosong!"); 
+                form.nama.focus(); 
+                return false; 
+            }
+            
+            alert("Terima kasih, " + namaValue + "!\nData Anda berhasil divalidasi."); 
+            return true; 
+        }
+
+        // Fitur tambahan: Tekan Enter untuk mengirim
+        document.getElementById("nama").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                ceknama(this.form);
+            }
+        });
+    </script>
+
+</body>
+</html>

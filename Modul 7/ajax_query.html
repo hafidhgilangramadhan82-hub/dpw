@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern AJAX & jQuery - Teal Edition</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        :root {
+            --primary-teal: #17a2b8;
+            --secondary-teal: #117a8b;
+            --bg-soft: #eef2f3;
+            --dark-card: #2d3436;
+            --accent-light: #e1f5f8;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f4f7f6 0%, #d1e8e2 100%);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .main-card {
+            max-width: 650px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            border-top: 8px solid var(--primary-teal);
+            position: relative;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h2 {
+            color: #2c3e50;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        .teori {
+            background: var(--accent-light);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 15px;
+            border-left: 6px solid var(--primary-teal);
+            transition: all 0.3s ease;
+        }
+
+        .teori strong {
+            color: var(--secondary-teal);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .teori p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .demo-box {
+            background: var(--dark-card);
+            color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .demo-box h4 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--primary-teal);
+            letter-spacing: 1px;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 14px;
+        }
+
+        .btn-teal {
+            background: var(--primary-teal);
+            color: white;
+            box-shadow: 0 4px 15px rgba(23, 162, 184, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-teal);
+            color: var(--primary-teal);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(23, 162, 184, 0.4);
+        }
+
+        .btn-teal:hover { background: var(--secondary-teal); }
+        .btn-outline:hover { background: var(--primary-teal); color: white; }
+
+        #hasil-konten {
+            margin-top: 25px;
+            min-height: 60px;
+            background: rgba(255,255,255,0.05);
+            border: 2px dashed rgba(23, 162, 184, 0.4);
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #bdc3c7;
+        }
+
+        .footer-id {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 11px;
+            color: #bdc3c7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-card">
+    <div class="header">
+        <h2>Panel Interaktif TI-2B</h2>
+    </div>
+
+    <div class="teori" id="box-jquery">
+        <strong>⚡ jQuery Magic</strong>
+        <p>Menyederhanakan manipulasi DOM. Tombol "Toggle" di bawah menggunakan <code>slideToggle()</code> untuk transisi visual yang lebih halus pada elemen ini.</p>
+    </div>
+
+    <div class="teori" id="box-ajax">
+        <strong>🌐 AJAX Asynchronous</strong>
+        <p>Memungkinkan pengiriman data tanpa muat ulang halaman. Sangat efektif untuk sistem manajemen data yang responsif dan hemat bandwidth.</p>
+    </div>
+
+    <div class="demo-box">
+        <h4>CONTROL CENTER</h4>
+        
+        <div class="btn-container">
+            <button class="btn btn-outline" id="toggleTeori">Toggle Teori</button>
+            <button class="btn btn-teal" id="loadData">Jalankan Simulasi AJAX</button>
+        </div>
+
+        <div id="hasil-konten">
+            Siap menerima instruksi, Hafidh...
+        </div>
+    </div>
+
+    <div class="footer-id">
+        Hafidh Gilang Ramadhan | NIM: 253307047
+    </div>
+</div>
+
+<script>
+$(document).ready(function(){
+    
+    // 1. jQuery: Slide Toggle (Lebih elegan dari Fade)
+    $("#toggleTeori").click(function(){
+        $("#box-jquery, #box-ajax").slideToggle(500);
+        $(this).toggleClass("active");
+    });
+
+    // 2. AJAX: Simulasi Pengambilan Data
+    $("#loadData").click(function(){
+        const $hasil = $("#hasil-konten");
+        
+        $hasil.html('<span style="color:#f1c40f">🔄 Menghubungkan ke server lokal...</span>');
+
+        // Simulasi Asinkronus dengan setTimeout
+        setTimeout(function(){
+            const response = {
+                user: "Hafidh Gilang",
+                status: "Success",
+                timestamp: new Date().toLocaleTimeString(),
+                msg: "Data berhasil diambil secara asinkron tanpa refresh!"
+            };
+
+            $hasil.hide().html(
+                `<div style="text-align:left; width:100%">` +
+                `<strong style="color:#55efc4">✅ STATUS: ${response.status}</strong><br>` +
+                `<small style="color:#95a5a6">Waktu: ${response.timestamp}</small><br>` +
+                `<p style="margin-top:8px; color:#fff">${response.msg}</p>` +
+                `</div>`
+            ).fadeIn(600);
+        }, 1200);
+    });
+
+});
+</script>
+
+</body>
+</html>
