@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Hasil Proses</title>
 </head>
 <body>
     <h3>Data Berhasil Diterima:</h3>
-    
-    Selamat datang, <b><?php echo $_GET["nama"]; ?></b><br>
-    NIM : <?php echo $_GET["nim"]; ?><br>
-    Email : <?php echo $_GET["email"]; ?><br>
-    Tempat, Tanggal Lahir : <?php echo $_GET["tempat"]; ?>, <?php echo $_GET["ttl"]; ?><br>
-    Alamat : <?php echo $_GET["alamat"]; ?><br>
-    Jenis Kelamin : <?php echo $_GET["gender"]; ?><br>
-
+    <?php
+    $method = ($_SERVER['REQUEST_METHOD'] == 'POST') ? $_POST : $_GET;
+    ?>
+    Selamat datang, <b><?php echo isset($method["nama"]) ? htmlspecialchars($method["nama"]) : ""; ?></b><br>
+    NIM : <?php echo isset($method["nim"]) ? htmlspecialchars($method["nim"]) : ""; ?><br>
+    Email : <?php echo isset($method["email"]) ? htmlspecialchars($method["email"]) : ""; ?><br>
+    Tempat, Tanggal Lahir : <?php echo isset($method["tempat"]) ? htmlspecialchars($method["tempat"]) : ""; ?>, <?php echo isset($method["ttl"]) ? htmlspecialchars($method["ttl"]) : ""; ?><br>
+    Alamat : <?php echo isset($method["alamat"]) ? htmlspecialchars($method["alamat"]) : ""; ?><br>
+    Jenis Kelamin : <?php echo isset($method["gender"]) ? htmlspecialchars($method["gender"]) : ""; ?><br>
 </body>
 </html>
