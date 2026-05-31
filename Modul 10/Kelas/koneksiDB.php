@@ -14,15 +14,17 @@ class Koneksi_db
             
             if($myconn){
                 $seldb = @mysqli_select_db($myconn, $this->db_name);
-                if($seldb){
-                    $this->con = true;
-                    return true;
-                }else{
-                    array_push($this->hasil, mysqli_error());
-                    return false;
-                }
+                    if($seldb){
+                        $this->con = true;
+                        return true;
+                    }else{
+                        // mysqli_error returns the last error for the given connection
+                        array_push($this->hasil, mysqli_error($myconn));
+                        return false;
+                    }
             }else{
-                array_push($this->hasil, mysqli_error());
+                    // mysqli_connect_error returns the last connect error
+                    array_push($this->hasil, mysqli_connect_error());
                 return false;
             }
         }else{
